@@ -19,6 +19,8 @@ var commentRoutes    = require("./routes/comments"),
 //local mongodb
 // mongoose.connect("mongodb://localhost/yelp_camp_v11", {useNewUrlParser: true, useUnifiedTopology: true});
 
+//line random
+
 //cloud mongodb atlas
 // mongoose.connect("mongodb+srv://joaobarcelos:HaKpIjK1nnlB9RXk@cluster0-fnitj.mongodb.net/yelp_camp_v12?retryWrites=true&w=majority");
 
