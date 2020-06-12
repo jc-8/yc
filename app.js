@@ -2,6 +2,7 @@ var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
     mongoose        = require("mongoose"),
+    dotenv          = require("dotenv"),
     flash           = require("connect-flash"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
@@ -16,15 +17,16 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
+dotenv.config();
+var mongodburl = process.env.MONGODBLINK;
+
 //local mongodb
 // mongoose.connect("mongodb://localhost/yelp_camp_v11", {useNewUrlParser: true, useUnifiedTopology: true});
-
-//line random
 
 //cloud mongodb atlas
 // mongoose.connect("mongodb+srv://joaobarcelos:HaKpIjK1nnlB9RXk@cluster0-fnitj.mongodb.net/yelp_camp_v12?retryWrites=true&w=majority");
 
-mongoose.connect("mongodb+srv://joaobarcelos:HaKpIjK1nnlB9RXk@cluster0-fnitj.mongodb.net/yelp_camp_v12?retryWrites=true&w=majority", {
+mongoose.connect(mongodburl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
