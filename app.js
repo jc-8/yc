@@ -23,7 +23,10 @@ var mongodburl = process.env.MONGODBLINK;
 
 //add environment variables, so the app connects to our local db
 //or to atlas mongodb (cloud) accordingly to where it is run
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true});
 
 
 //local mongodb
