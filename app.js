@@ -17,9 +17,7 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-//hide mongodb link with user and pass in a .env file and refer to it
-dotenv.config();
-var mongodburl = process.env.MONGODBLINK;
+
 
 //add environment variables, so the app connects to our local db
 //or to atlas mongodb (cloud) accordingly to where it is run
@@ -28,9 +26,12 @@ mongoose.connect(process.env.DATABASEURL, {
     useCreateIndex: true,
     useUnifiedTopology: true});
 
-
 //local mongodb
 // mongoose.connect("mongodb://localhost/yelp_camp_v11", {useNewUrlParser: true, useUnifiedTopology: true});
+
+//hide mongodb link with user and pass in a .env file and refer to it
+// dotenv.config();
+// var mongodburl = process.env.MONGODBLINK;
 
 //cloud mongodb atlas
 // mongoose.connect(mongodburl, {
@@ -42,10 +43,6 @@ mongoose.connect(process.env.DATABASEURL, {
 // }).catch(err => {
 //     console.log("Error", err.message);
 // });
-
-
-
-
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
