@@ -21,7 +21,9 @@ var commentRoutes    = require("./routes/comments"),
 
 //add environment variables, so the app connects to our local db
 //or to atlas mongodb (cloud) accordingly to where it is run
-mongoose.connect(process.env.DATABASEURL, {
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v11"
+
+mongoose.connect(url, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true});
